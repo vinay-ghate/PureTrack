@@ -1,16 +1,11 @@
-# pure_track
+# PureTrack 🚀
 
-A new Flutter project.
+    A sleek, offline-first, personal life tracker built using Dart and Flutter. Designed with a distraction-free, minimalist aesthetic, it allows you to log
+  progress, maintain streaks, and monitor habits without sending data to the cloud.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    ### Key Features
+    * 📊 **Multi-type Tracking** — Manage Habits (Yes/No), Counters (Numeric), Goals (Targets with deadlines), and Timers (Stopwatch sessions).
+    * 📅 **90-Day Contribution Heatmap** — GitHub-style activity grid visualizing your consistency.
+    * 🥗 **Calorie & Macro Sub-module** — Log meals and track daily Protein, Carbs, and Fat totals.
+    * 🔒 **100% Private & Offline** — Data resides locally in SQLite with option to export/backup to local JSON files.
+    * 🌙 **AMOLED Dark Mode** — Clean visual contrast with system-matching themes.
