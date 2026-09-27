@@ -1,0 +1,54 @@
+name: Build Android Application
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Java is required by Gradle to compile Android builds
+      - name: Set up Java Development Kit (JDK)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # Set up Flutter SDK
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Analyze project
+        run: flutter analyze
+
+      # Runs tests if any exist (optional: remove if test/ directory is empty)
+      - name: Run Flutter tests
+        run: flutter test
+
+      # Builds release APK
+      - name: Build Android APK
+        run: flutter build apk --release
+
+      # Optional: Builds Android App Bundle (.aab) for Google Play
+      # - name: Build App Bundle
+      #   run: flutter build appbundle --release
+
+      # Upload the built APK as a downloadable GitHub Action artifact
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
