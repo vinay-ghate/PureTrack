@@ -24,17 +24,19 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+          flutter-version: '3.24.0'  # Matches Dart 3.8+
           cache: true
-          flutter-version: '3.24.0'  # Specify explicit version for consistency
 
-      - name: Verify Flutter installation
-        run: flutter --version
+      - name: Verify Flutter and Dart
+        run: |
+          flutter --version
+          dart --version
 
       - name: Install dependencies
         run: flutter pub get
 
-      # - name: Analyze project
-      #   run: flutter analyze --no-fatal-infos  # Skip info-level issues
+      - name: Analyze project
+        run: flutter analyze --no-fatal-infos
 
       - name: Run tests
         run: flutter test
